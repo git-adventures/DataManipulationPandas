@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSV Cleaner</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- LEFT: Web UI -->
+  <div class="left">
+    <div class="left-center">
+      <h1>CSV Cleaner</h1>
+      <p>Upload a CSV file to clean and validate your data.</p>
+
+      <form id="upload-form" action="/" method="POST" enctype="multipart/form-data">
+        <div class="upload-box">
+          <input type="file" name="file" accept=".csv" id="file-input">
+          <label for="file-input">Click to choose a CSV file</label>
+          <span>Only .csv files supported</span>
+          <div id="file-name"></div>
+        </div>
+        <button class="btn" type="submit">Upload & Clean</button>
+        <div id="upload-status"></div>
+      </form>
+    </div>
+    <div id="faq"></div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider" id="divider"></div>
+
+  <!-- RIGHT: Interactive Terminal -->
+  <div class="right">
+    <div class="terminal-bar">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
+      <span class="terminal-title">csv-cleaner — bash</span>
+    </div>
+
+    <div class="terminal-body" id="terminal-output">
+      <span class="line gray"># CSV Cleaner Terminal — type 'help' to start</span>
+    </div>
+
+    <div class="terminal-input-row">
+      <span class="prompt">user@csv-cleaner:~$</span>
+      <input type="text" id="terminal-input" autofocus placeholder="type a command...">
+    </div>
+  </div>
+
+  <script type="module" src="{{ url_for('static', filename='main.js') }}"></script>
+
+</body>
+</html>

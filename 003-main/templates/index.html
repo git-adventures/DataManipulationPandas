@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DB Migrator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- LEFT: Form UI -->
+  <div class="left">
+    <div class="left-center">
+      <h1>DB Migrator</h1>
+      <p>Migrate data between SQLite, PostgreSQL, and MySQL.</p>
+
+      <form id="migrate-form">
+        <div class="section-label">Source Database</div>
+        <select name="src_type" id="src_type">
+          <option value="sqlite">SQLite</option>
+          <option value="postgresql">PostgreSQL</option>
+          <option value="mysql">MySQL</option>
+        </select>
+        <input type="text" name="src_database" placeholder="Database name or file path" required>
+        <input type="text" name="src_host" placeholder="Host (default: localhost)">
+        <input type="text" name="src_user" placeholder="Username">
+        <div class="pw-wrapper">
+          <input type="password" name="src_password" placeholder="Password" id="src_password">
+          <button type="button" class="pw-toggle" onclick="togglePw('src_password', this)">👁</button>
+        </div>
+
+        <div class="section-label" style="margin-top:16px">Target Database</div>
+        <select name="tgt_type" id="tgt_type">
+          <option value="sqlite">SQLite</option>
+          <option value="postgresql">PostgreSQL</option>
+          <option value="mysql">MySQL</option>
+        </select>
+        <input type="text" name="tgt_database" placeholder="Database name or file path" required>
+        <input type="text" name="tgt_host" placeholder="Host (default: localhost)">
+        <input type="text" name="tgt_user" placeholder="Username">
+        <div class="pw-wrapper">
+          <input type="password" name="tgt_password" placeholder="Password" id="tgt_password">
+          <button type="button" class="pw-toggle" onclick="togglePw('tgt_password', this)">👁</button>
+        </div>
+
+        <button class="btn" type="submit">Run Migration</button>
+        <div id="form-status"></div>
+      </form>
+    </div>
+    <div id="faq"></div>
+
+    <!-- SLIDE-UP RESULT PANEL -->
+    <div id="result-panel">
+      <div class="result-header">
+        <span id="result-title"></span>
+        <button class="result-close" onclick="document.getElementById('result-panel').classList.remove('open')">✕</button>
+      </div>
+      <div id="result-body"></div>
+    </div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider" id="divider"></div>
+
+  <!-- RIGHT: Terminal -->
+  <div class="right">
+    <div class="terminal-bar">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
+      <span class="terminal-title">db-migrator — bash</span>
+    </div>
+
+    <div class="terminal-body" id="terminal-output">
+      <span class="line gray"># DB Migrator Terminal — type 'help' to start</span>
+    </div>
+
+    <div class="terminal-input-row">
+      <span class="prompt">user@db-migrator:~$</span>
+      <input type="text" id="terminal-input" autofocus placeholder="type a command...">
+    </div>
+  </div>
+
+  <script>
+    function togglePw(id, btn) {
+      const input = document.getElementById(id);
+      input.type = input.type === 'password' ? 'text' : 'password';
+      btn.textContent = input.type === 'password' ? '👁' : '🙈';
+    }
+  </script>
+  <script type="module" src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

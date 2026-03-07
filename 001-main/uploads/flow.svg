@@ -1,0 +1,81 @@
+<svg width="700" height="420" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+
+  <!-- Background -->
+  <rect width="700" height="420" fill="#0f0f0f"/>
+
+  <!-- Title -->
+  <text x="350" y="35" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">CSV Cleaner — Flask Flow</text>
+
+  <!-- Box 1: Upload -->
+  <rect x="40" y="70" width="130" height="60" rx="8" fill="#1a1a2e" stroke="#4f8ef7" stroke-width="2"/>
+  <text x="105" y="97" text-anchor="middle" fill="#4f8ef7" font-size="13" font-weight="bold">Browser</text>
+  <text x="105" y="117" text-anchor="middle" fill="#aaaaaa" font-size="11">Upload CSV</text>
+
+  <!-- Arrow 1 -->
+  <line x1="170" y1="100" x2="240" y2="100" stroke="#4f8ef7" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="205" y="93" text-anchor="middle" fill="#666" font-size="10">POST /</text>
+
+  <!-- Box 2: Flask -->
+  <rect x="240" y="70" width="130" height="60" rx="8" fill="#1a1a2e" stroke="#a78bfa" stroke-width="2"/>
+  <text x="305" y="97" text-anchor="middle" fill="#a78bfa" font-size="13" font-weight="bold">Flask</text>
+  <text x="305" y="117" text-anchor="middle" fill="#aaaaaa" font-size="11">app.py</text>
+
+  <!-- Arrow 2 -->
+  <line x1="370" y1="100" x2="440" y2="100" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="405" y="93" text-anchor="middle" fill="#666" font-size="10">calls</text>
+
+  <!-- Box 3: CSVCleaner -->
+  <rect x="440" y="70" width="200" height="60" rx="8" fill="#1a1a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="540" y="95" text-anchor="middle" fill="#34d399" font-size="13" font-weight="bold">CSVCleaner</text>
+  <text x="540" y="115" text-anchor="middle" fill="#aaaaaa" font-size="11">main.py</text>
+
+  <!-- CSVCleaner steps -->
+  <rect x="40" y="200" width="620" height="50" rx="8" fill="#111827" stroke="#374151" stroke-width="1"/>
+  <text x="350" y="221" text-anchor="middle" fill="#9ca3af" font-size="11">CSVCleaner pipeline</text>
+
+  <text x="80"  y="238" text-anchor="middle" fill="#34d399" font-size="11">load()</text>
+  <text x="163" y="238" text-anchor="middle" fill="#34d399" font-size="11">inspect()</text>
+  <text x="255" y="238" text-anchor="middle" fill="#34d399" font-size="11">validate()</text>
+  <text x="355" y="238" text-anchor="middle" fill="#34d399" font-size="11">clean()</text>
+  <text x="458" y="238" text-anchor="middle" fill="#34d399" font-size="11">detect_outliers()</text>
+  <text x="590" y="238" text-anchor="middle" fill="#34d399" font-size="11">export()</text>
+
+  <!-- Arrows between steps -->
+  <text x="118" y="241" fill="#555" font-size="11">→</text>
+  <text x="205" y="241" fill="#555" font-size="11">→</text>
+  <text x="300" y="241" fill="#555" font-size="11">→</text>
+  <text x="395" y="241" fill="#555" font-size="11">→</text>
+  <text x="520" y="241" fill="#555" font-size="11">→</text>
+
+  <!-- Arrow down from pipeline to output -->
+  <line x1="350" y1="250" x2="350" y2="300" stroke="#374151" stroke-width="2" marker-end="url(#arrow2)"/>
+
+  <!-- Box 4: Report page -->
+  <rect x="160" y="300" width="160" height="60" rx="8" fill="#1a1a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="240" y="326" text-anchor="middle" fill="#f59e0b" font-size="13" font-weight="bold">report.html</text>
+  <text x="240" y="346" text-anchor="middle" fill="#aaaaaa" font-size="11">GET /report</text>
+
+  <!-- Box 5: Download -->
+  <rect x="380" y="300" width="160" height="60" rx="8" fill="#1a1a2e" stroke="#f87171" stroke-width="2"/>
+  <text x="460" y="326" text-anchor="middle" fill="#f87171" font-size="13" font-weight="bold">cleaned.csv</text>
+  <text x="460" y="346" text-anchor="middle" fill="#aaaaaa" font-size="11">GET /download</text>
+
+  <!-- Arrow from Flask down to pipeline -->
+  <line x1="305" y1="130" x2="305" y2="185" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="305" y1="185" x2="350" y2="185" stroke="#a78bfa" stroke-width="2"/>
+  <line x1="350" y1="185" x2="350" y2="200" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Arrowhead markers -->
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#4f8ef7"/>
+    </marker>
+    <marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <!-- Legend -->
+  <text x="350" y="395" text-anchor="middle" fill="#4b5563" font-size="11">Browser → Flask → CSVCleaner → report.html + download</text>
+
+</svg>

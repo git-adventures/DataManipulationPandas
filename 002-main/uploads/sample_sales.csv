@@ -1,0 +1,11 @@
+date,region,product,units_sold,unit_price,cost
+2024-01-05,North,Widget A,120,25.00,12.00
+2024-01-12,South,Widget B,85,40.00,18.00
+2024-01-20,East,Widget A,200,25.00,12.00
+2024-02-03,North,Widget C,60,55.00,30.00
+2024-02-14,West,Widget B,110,40.00,18.00
+2024-02-28,South,Widget A,95,25.00,12.00
+2024-03-07,East,Widget C,75,55.00,30.00
+2024-03-15,North,Widget B,130,40.00,18.00
+2024-03-22,West,Widget A,180,25.00,12.00
+2024-04-01,South,Widget C,50,55.00,30.00

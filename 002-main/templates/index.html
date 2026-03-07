@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Excel Report Generator</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css')}}"
+    />
+  </head>
+  <body>
+    <!-- LEFT: Web UI-->
+    <div class="left">
+      <div class="left-center">
+        <h1>Excel Report Generator</h1>
+        <p>Upload a CSV file and generate a formatted Excel report.</p>
+
+        <form id="upload-form" enctype="multipart/form-data">
+          <select name="report_type" id="report-type">
+            <option value="">-- Select report type --</option>
+            <option value="sales">Sales Report</option>
+            <option value="financial">Financial Report</option>
+            <option value="inventory">Inventory Report</option>
+          </select>
+
+          <div class="upload-box">
+            <input type="file" name="file" accept=".csv" id="file-input" />
+            <label for="file-input">Click to choose a CSV file</label>
+            <span>Only .csv files supported</span>
+            <div id="file-name"></div>
+          </div>
+
+          <button class="btn" type="submit">Generate Report</button>
+          <div id="upload-status"></div>
+        </form>
+      </div>
+      <div id="faq"></div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="divider" id="divider"></div>
+
+    <!-- RIGHT: Terminal -->
+    <div class="right">
+      <div class="terminal-bar">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <span class="terminal-title">report-generator - bash</span>
+      </div>
+
+      <div class="terminal-body" id="terminal-output">
+        <span class="line gray"
+          ># Excel Report Generator - type 'help' to start</span
+        >
+      </div>
+
+      <div class="terminal-input-row">
+        <span class="prompt">user@report-gen:~$</span>
+        <input
+          type="text"
+          id="terminal-input"
+          autofocus
+          placeholder="type a command..."
+        />
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="{{ url_for('static', filename='main.js')}}"
+    ></script>
+  </body>
+</html>

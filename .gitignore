@@ -1,0 +1,19 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# SQLite output files (generated during testing)
+*.db
+
+# Excel output
+output/
+
+# Python egg / dist
+*.egg-info/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,7 @@
+product,category,stock,reorder_level,unit_cost,unit_price
+Widget A,Electronics,150,50,12.00,25.00
+Widget B,Electronics,30,40,18.00,40.00
+Widget C,Furniture,80,30,30.00,55.00
+Widget D,Electronics,5,20,45.00,90.00
+Widget E,Furniture,200,60,8.00,18.00
+Widget F,Electronics,45,50,22.00,48.00

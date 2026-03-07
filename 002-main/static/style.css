@@ -1,0 +1,263 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  display: flex;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+/* LEFT */
+.left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background: #ffffff;
+  overflow-y: auto;
+  position: relative;
+}
+
+.left-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 360px;
+}
+
+.left h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.left p {
+  color: #666;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+/* DROPDOWN */
+select {
+  width: 100%;
+  max-width: 360px;
+  padding: 10px 14px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #111;
+  background: #fff;
+  margin-bottom: 16px;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+}
+
+select:focus { border-color: #6366f1; }
+
+/* UPLOAD BOX */
+.upload-box {
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+  width: 100%;
+  max-width: 360px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.upload-box:hover { border-color: #6366f1; }
+.upload-box input { display: none; }
+
+.upload-box label {
+  display: block;
+  cursor: pointer;
+  color: #6366f1;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.upload-box span {
+  display: block;
+  color: #aaa;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+#file-name {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #444;
+}
+
+/* BUTTON */
+.btn {
+  margin-top: 24px;
+  width: 100%;
+  max-width: 360px;
+  padding: 12px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn:hover { background: #4f46e5; }
+
+/* STATUS */
+.status {
+  margin-top: 12px;
+  font-size: 13px;
+  text-align: center;
+  max-width: 360px;
+  width: 100%;
+}
+
+.status.success { color: #16a34a; }
+.status.error   { color: #dc2626; }
+
+/* FAQ */
+#faq {
+  position: absolute;
+  bottom: 24px;
+  left: 40px;
+  right: 40px;
+}
+
+.faq-item {
+  display: flex;
+  flex-direction: column-reverse;
+  border-top: 1px solid #e5e7eb;
+}
+
+.faq-item:last-child { border-bottom: 1px solid #e5e7eb; }
+
+.faq-question {
+  all: unset;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.faq-question::after {
+  content: '+';
+  color: #aaa;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+
+.faq-question.active::after { transform: rotate(45deg); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.faq-answer.open { max-height: 80px; }
+
+/* DIVIDER */
+.divider {
+  width: 4px;
+  background: #e5e7eb;
+  cursor: col-resize;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.divider:hover, .divider.dragging { background: #6366f1; }
+
+/* RIGHT - TERMINAL */
+.right {
+  width: 50%;
+  background: #0d0d0d;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-bar {
+  background: #1e1e1e;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot.red    { background: #ff5f57; }
+.dot.yellow { background: #febc2e; }
+.dot.green  { background: #28c840; }
+
+.terminal-title {
+  color: #666;
+  font-size: 12px;
+  font-family: monospace;
+  margin-left: 8px;
+}
+
+.terminal-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 13px;
+  color: #d4d4d4;
+  line-height: 1.8;
+}
+
+.terminal-body .line   { display: block; }
+.terminal-body .green  { color: #34d399; }
+.terminal-body .yellow { color: #fbbf24; }
+.terminal-body .red    { color: #f87171; }
+.terminal-body .gray   { color: #6b7280; }
+.terminal-body .purple { color: #a78bfa; }
+
+.terminal-input-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  border-top: 1px solid #1e1e1e;
+  gap: 8px;
+}
+
+.prompt {
+  color: #34d399;
+  font-family: monospace;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.terminal-input-row input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #d4d4d4;
+  font-family: monospace;
+  font-size: 13px;
+  caret-color: #34d399;
+}
