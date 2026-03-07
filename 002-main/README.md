@@ -235,10 +235,3 @@ CSV file (user upload or local)
 ![Fig.2.3](uploads/flow.svg)
 <p align="center"><em>Fig.2.3: Browser → Flask → DataLoader → ExcelWriter → report.xlsx</em></p>
 
----
-
-## Notes
-
-- On Kali Linux, always use `/usr/bin/python3` to create the venv — the system Python has SSL support required for pip. Thonny's bundled Python does not.
-- The `uploads/` folder stores the last uploaded CSV temporarily. It is not cleared automatically.
-- Only one report is stored at a time in `output/report.xlsx`. Generating a new report overwrites the previous one.
